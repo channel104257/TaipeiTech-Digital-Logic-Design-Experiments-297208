@@ -1,17 +1,17 @@
 module FIFO_tb;
 
 	parameter AddressDepth = 4; 						// 儲存深度 2^4 = 16
-	parameter DataWide = 8; 							// 位元寬度 8 bits
+	parameter DataWide = 8; 						// 位元寬度 8 bits
 
-	reg clk = 1'b0;										// 輸入時脈
-	reg CS;													// 晶片致能
-	reg rst;													// 重置
-	reg Insert_Delete;									// 插入刪除控制線 Insert = '1' Delete = '0'
+	reg clk = 1'b0;								// 輸入時脈
+	reg CS;									// 晶片致能
+	reg rst;								// 重置
+	reg Insert_Delete;							// 插入刪除控制線 Insert = '1' Delete = '0'
 	reg [DataWide - 1:0] Data_In;						// 資料輸入線
 
-	wire Full;												// 滿佇列
-	wire Empty;												// 空佇列
-	wire [DataWide - 1:0] Data_Out;					// 資料輸出線
+	wire Full;								// 滿佇列
+	wire Empty;								// 空佇列
+	wire [DataWide - 1:0] Data_Out;						// 資料輸出線
 	
 	FIFO Stack(clk, CS, rst, Insert_Delete, Data_In, Data_Out, Full, Empty);
 	
